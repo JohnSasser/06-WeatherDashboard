@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <!-- css links -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="./assets/css/style.css">
+
+    <!-- .js links -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="./assets/javascript/script.js" async defer></script>
+</head>
+
+<body>
+    <div class="header">
+        <h1>
+            Weather Dashboard
+        </h1>
+    </div>
+    <div class="container main-container">
+        <div class="row">
+            <!-- <div class="col-sm-3"> -->
+            <div class="row main-row">
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-3 col-left">
+                    <form>
+                        <div class="form-group">
+                            <label for="FormControlInput1">Search for a City:</label>
+                            <input type="text" class="form-control" id="city-input" placeholder="East Atlanta...">
+                        </div>
+                    </form>
+                    <div class="buttons">
+                        <button type="button" class="btn btn-outline-secondary">Seattle, WA</button>
+                        <button type="button" class="btn btn-outline-secondary">Atlanta, GA</button>
+                        <button type="button" class="btn btn-outline-secondary">Denver, CO</button>
+                        <button type="button" class="btn btn-outline-secondary">Los Angeles, CA</button>
+                        <button type="button" class="btn btn-outline-secondary">Austin, TX</button>
+                        <button type="button" class="btn btn-outline-secondary">Chicago, IL</button>
+                        <button type="button" class="btn btn-outline-secondary">Boston, MA</button>
+                    </div>
+                </div>
+
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-9 col-right">
+                    <div class="city">
+                        <li id="city">East Atlanta</li>
+                        <li id="temp">65 F</li>
+                        <li id="wind">5 MPH</li>
+                        <li id="UV">2.0 </li>
+                    </div>
+                    <div class="forecast">
+                        populate forecast for given locations...
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <footer> John Sasser &COPY; </footer>
+</body>
+
+</html>

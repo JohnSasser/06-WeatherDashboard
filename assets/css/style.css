@@ -1,0 +1,117 @@
+body {
+	background-image: url("../images/aerial-view-min.jpg");
+	background-color: rgb(1, 1, 1);
+	background-repeat: no-repeat;
+}
+
+.header {
+	text-align: center;
+	padding: 25px 0;
+	height: 100px;
+	width: 20%;
+	background-color: rgb(1, 1, 1);
+	color: rgb(255, 255, 255);
+	margin: 0 auto;
+}
+
+.main-container {
+	height: 600px;
+	width: 80%;
+	margin: 0 auto;
+}
+
+.btn {
+	margin: 4px auto;
+	width: 100%;
+	border: none;
+	background-color: rgb(243, 243, 243);
+	border-radius: 0;
+}
+
+.btn:hover {
+	background-color: rgba(126, 229, 255, 0.916);
+	color: rgba(1, 1, 1);
+}
+
+.main-row {
+	width: 90%;
+	margin: 0 auto;
+	margin-top: 50px;
+	height: 500px;
+}
+
+.col-left {
+	justify-content: center;
+	color: rgb(255, 254, 254);
+}
+
+.col-right {
+	border-top-right-radius: 10px;
+	border-bottom-right-radius: 10px;
+}
+
+.form-group {
+	margin-bottom: 30px;
+	text-align: center;
+}
+
+.city {
+	border: 1px solid black;
+	background-color: rgba(255, 255, 255, 0.395);
+	margin: 15px;
+	height: 200px;
+	float: left;
+	width: 90%;
+	border-radius: 10px;
+	padding: 15px 25px;
+	
+}
+
+.city:hover {
+	box-shadow: -5px 5px 4px rgba(0, 0, 0, 0.062);
+	transition: 0.2s;
+	background-color: rgba(218, 248, 255, 0.888);
+}
+
+.forecast {
+	border: 1px solid black;
+	background-color: rgba(255, 255, 255, 0.395);
+	margin: 15px;
+	height: 200px;
+	float: left;
+	width: 90%;
+	padding: 15px 25px;
+	border-radius: 10px;
+	margin-bottom: 60px;
+}
+
+.forecast:hover {
+	box-shadow: -5px 5px 4px rgba(0, 0, 0, 0.062);
+	transition: 0.2s;
+	background-color: rgba(218, 248, 255, 0.888);
+}
+
+#city-input {
+	text-align: center;
+	color: rgb(0, 119, 149);
+}
+
+#city-input::placeholder {
+	color: rgb(0, 119, 149);
+}
+
+li {
+	list-style: none;
+	padding-top: 14px;
+}
+
+footer {
+	text-align: center;
+	background-color: #ccc;
+
+	height: 30px;
+	align-self: center;
+	border-top: solid 0.8px black;
+	position: fixed;
+	bottom: 0;
+	width: 100%;
