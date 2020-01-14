@@ -6,10 +6,9 @@ body {
 
 .header {
 	text-align: center;
-	padding: 25px 0;
+	padding: 25px;
 	height: 100px;
-	width: 20%;
-	background-color: rgb(1, 1, 1);
+	width: 80%;
 	color: rgb(255, 255, 255);
 	margin: 0 auto;
 }
@@ -25,7 +24,7 @@ body {
 	width: 100%;
 	border: none;
 	background-color: rgb(243, 243, 243);
-	border-radius: 0;
+	border-radius: 1px;
 }
 
 .btn:hover {
@@ -34,7 +33,6 @@ body {
 }
 
 .main-row {
-	width: 90%;
 	margin: 0 auto;
 	margin-top: 50px;
 	height: 500px;
@@ -43,11 +41,6 @@ body {
 .col-left {
 	justify-content: center;
 	color: rgb(255, 254, 254);
-}
-
-.col-right {
-	border-top-right-radius: 10px;
-	border-bottom-right-radius: 10px;
 }
 
 .form-group {
@@ -59,7 +52,7 @@ body {
 	border: 1px solid black;
 	background-color: rgba(255, 255, 255, 0.395);
 	margin: 15px;
-	height: 200px;
+	height: 250px;
 	float: left;
 	width: 90%;
 	border-radius: 10px;
@@ -76,7 +69,7 @@ body {
 	border: 1px solid black;
 	background-color: rgba(255, 255, 255, 0.395);
 	margin: 15px;
-	height: 200px;
+	height: 250px;
 	float: left;
 	width: 90%;
 	padding: 15px 25px;
@@ -93,10 +86,16 @@ body {
 #city-input {
 	text-align: center;
 	color: rgb(0, 119, 149);
+	width: 80%;
+	float: left;
 }
 
 #city-input::placeholder {
 	color: rgb(0, 119, 149);
+}
+
+.search-btn {
+	width: 15%;
 }
 
 li {
