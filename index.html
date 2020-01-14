@@ -11,7 +11,10 @@
     <link rel="stylesheet" href="./assets/css/style.css">
 
     <!-- .js links -->
+    <!-- <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script> -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script type="module" src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons/ionicons.esm.js"></script>
     <script src="./assets/javascript/script.js" async defer></script>
 </head>
 
@@ -23,42 +26,66 @@
     </div>
     <div class="container main-container">
         <div class="row">
-            <!-- <div class="col-sm-3"> -->
             <div class="row main-row">
-                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-3 col-left">
-                    <form>
-                        <div class="form-group">
-                            <label for="FormControlInput1">Search for a City:</label>
-                            <input type="text" class="form-control" id="city-input" placeholder="East Atlanta...">
-                        </div>
-                    </form>
-                    <div class="buttons">
-                        <button type="button" class="btn btn-outline-secondary">Seattle, WA</button>
-                        <button type="button" class="btn btn-outline-secondary">Atlanta, GA</button>
-                        <button type="button" class="btn btn-outline-secondary">Denver, CO</button>
-                        <button type="button" class="btn btn-outline-secondary">Los Angeles, CA</button>
-                        <button type="button" class="btn btn-outline-secondary">Austin, TX</button>
-                        <button type="button" class="btn btn-outline-secondary">Chicago, IL</button>
-                        <button type="button" class="btn btn-outline-secondary">Boston, MA</button>
+
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-4 col-left">
+
+                    <div class="form-group">
+                        <h4 for="FormControlInput1">Search for a City:</h4>
+                        <input type="text" class="form-control" id="city-input" placeholder="East Atlanta...">
+                        <button type="submit" class="btn btn-default btn-sm search-btn">
+                            <ion-icon name="search"></ion-icon>
+                        </button>
                     </div>
+
+                    <div class="buttons">
+                        <button data-attr="seattle" class="btn btn-outline-secondary">Seattle, WA</button>
+                        <button data-attr="atlanta" class="btn btn-outline-secondary">Atlanta, GA</button>
+                        <button data-attr="denver" class="btn btn-outline-secondary">Denver, CO</button>
+                        <button data-attr="losAngeles" class="btn btn-outline-secondary">Los Angeles, CA</button>
+                        <button data-attr="austin" class="btn btn-outline-secondary">Austin, TX</button>
+                        <button data-attr="chicago" class="btn btn-outline-secondary">Chicago, IL</button>
+                        <button data-attr="boston" class="btn btn-outline-secondary">Boston, MA</button>
+                    </div>
+
                 </div>
 
-                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-9 col-right">
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-8 col-right">
+
                     <div class="city">
                         <li id="city">East Atlanta</li>
                         <li id="temp">65 F</li>
+                        <li id="humid">Humidity: </li>
                         <li id="wind">5 MPH</li>
                         <li id="UV">2.0 </li>
                     </div>
+
                     <div class="forecast">
                         populate forecast for given locations...
+                        <div class="row">
+
+                            <div class="col-sm-2">
+
+                            </div>
+                            <div class="col-sm-2">
+
+                            </div>
+                            <div class="col-sm-2">
+
+                            </div>
+                            <div class="col-sm-2">
+
+                            </div>
+                            <div class="col-sm-2">
+
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-
         </div>
     </div>
-    <footer> John Sasser &COPY; </footer>
+    <footer> John Sasser &COPY; : Jan 2020 </footer>
 </body>
 
 </html>
