@@ -1,4 +1,4 @@
-// write some damn .js
+// write some damn .js silly!!!
 
 const key = "&APPID=73850cb2206998863eff087956e1fb33";
 // let date = moment().format("MMMM Do YYYY");
@@ -17,11 +17,9 @@ $(".search-btn").on("click", function(e) {
 		.val()
 		.toLowerCase()
 		.trim();
-
 	$buttonArr.push(cityName);
 
 	weatherPull();
-	console.log(cityName);
 });
 
 function weatherPull() {
