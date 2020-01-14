@@ -94,6 +94,10 @@ body {
 	color: rgb(0, 119, 149);
 }
 
+#city {
+	font-size: 30px;
+}
+
 .search-btn {
 	width: 15%;
 }
