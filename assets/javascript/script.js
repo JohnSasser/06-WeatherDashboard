@@ -17,9 +17,9 @@ $(".search-btn").on("click", function(e) {
 		.val()
 		.toLowerCase()
 		.trim();
-	// for (var i = 0; i < $buttons.length; i++) {
+
 	$buttonArr.push(cityName);
-	// }
+
 	weatherPull();
 	console.log(cityName);
 });
@@ -40,7 +40,8 @@ function weatherPull() {
 		let icon = res.weather.icon;
 		let humid = res.main.humidity;
 		let wind = res.wind.speed;
-		// for UV index, I need the lat & lon
+		// for UV index, I need the lat, lon and a new api call,
+		// "http://api.openweathermap.org/data/2.5/uvi?appid={appid}&lat={lat}&lon={lon}"
 
 		let lat = res.coord.lon;
 		let lon = res.coord.lat;
