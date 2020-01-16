@@ -98,6 +98,10 @@ body {
 	font-size: 30px;
 }
 
+.city-header {
+	left: 30px;
+}
+
 .search-btn {
 	width: 15%;
 }
