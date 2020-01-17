@@ -123,7 +123,7 @@ function weatherPull(cityName) {
 		//  ***** in progress *****
 
 		// call for the forecast data
-		function forecastData() {
+		function forecastData(lat, lon) {
 			let forecastURL =
 				"https://api.openweathermap.org/data/2.5/forecast?" +
 				lat +
@@ -135,36 +135,43 @@ function weatherPull(cityName) {
 				url: forecastURL,
 				method: "GET"
 			}).then(function(res) {
-				// console.log(res);
+				console.log(res);
+
+				let colCount = 0;
 
 				//  ***** still broken, but very close.
 				// getting the values back in the console.log
 				// but they are not appending the values;
 				for (let i = 7; i < 40; i = i + 8) {
-					let date = res.list[i].dt_txt;
-					$forecastColumns.append(date[i], "<br>");
+					let date = moment().format("MM - DD - YYYY");
+					$(".row-date")[colCount].append(date);
 
 					let icon =
 						"https://openweathermap.org/img/wn/" +
 						res.list[i].weather[0].icon +
 						".png";
-					let img = $("<img>").attr("src", icon, "<br>");
-					$forecastColumns.append(img[i]);
+					let img = $("<img>").attr("src", icon);
+					$(".row-icon").append(img[colCount]);
 
 					let temp = res.list[i].main.temp;
-					$forecastColumns.append("temp: " + temp[i] + "ºF", "<br>");
+					$(".row-temp")[colCount].append("temp: " + temp + "ºF");
+
 					let humid = res.list[i].main.humidity;
-					$forecastColumns.append("humidity: " + humid[i] + " %");
+					$(".row-humid")[colCount].append("humidity: " + humid + " %");
+
 					console.log(
-						"Date: " + date.slice(0, 10),
+						"Date: " + date,
 						icon,
 						"temp: " + temp + "ºF",
 						"humidity: " + humid
 					);
+					// $(".row-temp").css("margin-bottom: ", "20px");
+
+					colCount++;
 				}
 			});
 		}
-		forecastData();
+		forecastData(lat, lon);
 	});
 }
 

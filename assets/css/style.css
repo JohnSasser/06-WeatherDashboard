@@ -46,6 +46,20 @@ body {
 
 .fore-col {
 	font-size: 10px;
+	background-color: rgba(126, 229, 255, 0.916);
+	margin-left: 15px;
+	border: 1px solid black;
+	border-radius: 10px;
+	padding: 15px 25px;
+	height: 200px;
+}
+
+.row-date,
+.row-icon,
+.row-temp,
+.row-humid {
+	justify-content: center;
+	margin-bottom: 15px;
 }
 
 .form-group {
