@@ -34,15 +34,16 @@ console.log($buttonArr);
 
 //  ****** trying to make the generated buttons work....   ******
 
-// $(".buttons").on("click", $createdButton, function() {
-// 	for (let i = 0; i < $buttonArr.length; i++) {
-// 		const createdButton = $("<button>").addClass("btn-outline-secondary btn");
-// 		createdButton.text($buttonArr[i]);
-// 		$buttons.prepend(createdButton);
-
-// 		weatherPull(createdButton);
-// 	}
-// });
+$(".buttons").on("click", "button", function() {
+	$buttons.empty();
+	let createdButton = "";
+	for (let i = 0; i < $buttonArr.length; i++) {
+		createdButton = $("<button>").addClass("btn-outline-secondary btn");
+		createdButton.text($buttonArr[i]);
+		$buttons.prepend(createdButton);
+	}
+	weatherPull($(this)[0].innerText);
+});
 
 function toStorage(cityName) {
 	$buttonArr.push(cityName);
@@ -69,7 +70,8 @@ function returnStorage() {
 	}
 }
 
-function weatherPull(cityName) {
+function weatherPull(cityName, createdButton) {
+	console.log(cityName, createdButton);
 	let weatherURL =
 		"http://api.openweathermap.org/data/2.5/weather?q=" +
 		cityName +
