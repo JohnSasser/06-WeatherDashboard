@@ -10,6 +10,7 @@ let $humid = $("#humid");
 let $wind = $("#wind");
 let $uv = $("#UV");
 let $createdButton = $(".btn");
+let $forecastColumns = $(".col-sm-2");
 
 $(".search-btn").on("click", function(e) {
 	e.preventDefault();
@@ -27,6 +28,7 @@ $(".search-btn").on("click", function(e) {
 	}
 
 	weatherPull(cityName);
+	// forecastData();
 
 	// forecastData();
 });
@@ -43,6 +45,7 @@ $(".buttons").on("click", "button", function() {
 		$buttons.prepend(createdButton);
 	}
 	weatherPull($(this)[0].innerText);
+	// forecastData();
 });
 
 function toStorage(cityName) {
@@ -70,12 +73,10 @@ function returnStorage() {
 	}
 }
 
-function weatherPull(cityName, createdButton) {
-	console.log(cityName, createdButton);
+function weatherPull(cityName) {
 	let weatherURL =
 		"http://api.openweathermap.org/data/2.5/weather?q=" +
 		cityName +
-		// createdButton +
 		"&units=imperial" +
 		"&APPID=" +
 		key;
@@ -92,9 +93,9 @@ function weatherPull(cityName, createdButton) {
 
 		// display data points from API;
 		$city.empty().append(city, date);
-		$temp.empty().prepend(temp + " ºF");
-		$humid.empty().append("Humidity: " + humid);
-		$wind.empty().append("Wind Speed mph: " + wind);
+		$temp.empty().prepend("Temperature: " + temp + " ºF");
+		$humid.empty().append("Humidity: " + humid + " %");
+		$wind.empty().append("Wind: " + wind + " mph");
 
 		// for UV index, new call;
 		let lat = "&lat=" + res.coord.lon;
@@ -134,13 +135,36 @@ function weatherPull(cityName, createdButton) {
 				url: forecastURL,
 				method: "GET"
 			}).then(function(res) {
-				let date = res.dt_txt.splice(10, 19);
-				let icon = res.weather[3].icon;
-				let temp = res.main.temp;
-				let humid = res.main.humidity;
-				console.log(date, icon, temp, humid);
+				// console.log(res);
+
+				//  ***** still broken, but very close.
+				// getting the values back in the console.log
+				// but they are not appending the values;
+				for (let i = 7; i < 40; i = i + 8) {
+					let date = res.list[i].dt_txt;
+					$(".col-sm-2").append(date[i]);
+
+					let icon =
+						"https://openweathermap.org/img/wn/" +
+						res.list[i].weather[0].icon +
+						".png";
+					let img = $("<img>").attr("src", icon);
+					$forecastColumns.append(img[i]);
+
+					let temp = res.list[i].main.temp;
+					$forecastColumns.append(temp[i]);
+					let humid = res.list[i].main.humidity;
+					$forecastColumns.append(humid[i]);
+					console.log(
+						"Date: " + date.slice(0, 10),
+						icon,
+						"temp: " + temp + "ºF",
+						"humidity: " + humid
+					);
+				}
 			});
 		}
+		forecastData();
 	});
 }
 
