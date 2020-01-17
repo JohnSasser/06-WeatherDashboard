@@ -10,7 +10,7 @@ let $humid = $("#humid");
 let $wind = $("#wind");
 let $uv = $("#UV");
 let $createdButton = $(".btn");
-let $forecastColumns = $(".col-sm-2");
+let $forecastColumns = $(".fore-col");
 
 $(".search-btn").on("click", function(e) {
 	e.preventDefault();
@@ -142,19 +142,19 @@ function weatherPull(cityName) {
 				// but they are not appending the values;
 				for (let i = 7; i < 40; i = i + 8) {
 					let date = res.list[i].dt_txt;
-					$(".col-sm-2").append(date[i]);
+					$forecastColumns.append(date[i], "<br>");
 
 					let icon =
 						"https://openweathermap.org/img/wn/" +
 						res.list[i].weather[0].icon +
 						".png";
-					let img = $("<img>").attr("src", icon);
+					let img = $("<img>").attr("src", icon, "<br>");
 					$forecastColumns.append(img[i]);
 
 					let temp = res.list[i].main.temp;
-					$forecastColumns.append(temp[i]);
+					$forecastColumns.append("temp: " + temp[i] + "ºF", "<br>");
 					let humid = res.list[i].main.humidity;
-					$forecastColumns.append(humid[i]);
+					$forecastColumns.append("humidity: " + humid[i] + " %");
 					console.log(
 						"Date: " + date.slice(0, 10),
 						icon,

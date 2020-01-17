@@ -30,6 +30,7 @@ body {
 .btn:hover {
 	background-color: rgba(126, 229, 255, 0.916);
 	color: rgba(1, 1, 1);
+	box-shadow: 0 0 5px rgba(126, 229, 255, 0.916);
 }
 
 .main-row {
@@ -40,7 +41,11 @@ body {
 
 .col-left {
 	justify-content: center;
-	color: rgb(255, 254, 254);
+	color: rgb(175, 255, 242);
+}
+
+.fore-col {
+	font-size: 10px;
 }
 
 .form-group {
