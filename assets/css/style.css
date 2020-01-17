@@ -4,6 +4,10 @@ body {
 	background-repeat: no-repeat;
 }
 
+.hide {
+	display: none;
+}
+
 .header {
 	text-align: center;
 	padding: 25px;
@@ -46,8 +50,8 @@ body {
 
 .fore-col {
 	font-size: 10px;
-	background-color: rgba(126, 229, 255, 0.916);
-	margin-left: 15px;
+	background-color: rgba(168, 238, 255, 0.916);
+	margin: 10px 0 0 18px;
 	border: 1px solid black;
 	border-radius: 10px;
 	padding: 15px 25px;
@@ -99,7 +103,7 @@ body {
 .forecast:hover {
 	box-shadow: -5px 5px 4px rgba(0, 0, 0, 0.062);
 	transition: 0.2s;
-	background-color: rgba(218, 248, 255, 0.888);
+	background-color: rgb(255, 255, 255);
 }
 
 #city-input {
