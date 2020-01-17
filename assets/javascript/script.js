@@ -139,9 +139,6 @@ function weatherPull(cityName) {
 
 				let colCount = 0;
 
-				//  ***** still broken, but very close.
-				// getting the values back in the console.log
-				// but they are not appending the values;
 				for (let i = 7; i < 40; i = i + 8) {
 					let date = moment().format("MM - DD - YYYY");
 					$(".row-date")[colCount].append(date);
@@ -159,12 +156,6 @@ function weatherPull(cityName) {
 					let humid = res.list[i].main.humidity;
 					$(".row-humid")[colCount].append("humidity: " + humid + " %");
 
-					console.log(
-						"Date: " + date,
-						icon,
-						"temp: " + temp + "ºF",
-						"humidity: " + humid
-					);
 					// $(".row-temp").css("margin-bottom: ", "20px");
 
 					colCount++;
