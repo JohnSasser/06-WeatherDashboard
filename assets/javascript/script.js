@@ -12,42 +12,6 @@ let $uv = $("#UV");
 let $createdButton = $(".btn");
 let $forecastColumns = $(".fore-col");
 
-$(".search-btn").on("click", function(e) {
-	e.preventDefault();
-	var cityName = $input
-		.val()
-		.toLowerCase()
-		.trim();
-	// if buttonArr does not include city name;
-	if (!$buttonArr.includes(cityName)) {
-		toStorage(cityName);
-
-		let cityButton = $("<button>").addClass("btn-outline-secondary btn");
-		cityButton.text(cityName);
-		$buttons.prepend(cityButton);
-	}
-
-	weatherPull(cityName);
-	// forecastData();
-
-	// forecastData();
-});
-console.log($buttonArr);
-
-//  ****** trying to make the generated buttons work....   ******
-
-$(".buttons").on("click", "button", function() {
-	$buttons.empty();
-	let createdButton = "";
-	for (let i = 0; i < $buttonArr.length; i++) {
-		createdButton = $("<button>").addClass("btn-outline-secondary btn");
-		createdButton.text($buttonArr[i]);
-		$buttons.prepend(createdButton);
-	}
-	weatherPull($(this)[0].innerText);
-	// forecastData();
-});
-
 function toStorage(cityName) {
 	$buttonArr.push(cityName);
 	let inputArr = JSON.stringify($buttonArr);
@@ -70,6 +34,12 @@ function returnStorage() {
 		cityButton.text($buttonArr[i]);
 		$buttons.prepend(cityButton);
 		// console.log(output, $buttonArr);
+	}
+}
+
+function clearForecastDivs() {
+	for (let i = 1; i < $forecastColumns.length; i++) {
+		$forecastColumns[i].empty();
 	}
 }
 
@@ -107,7 +77,7 @@ function weatherPull(cityName) {
 		let img = $("<img>").attr("src", iconURL);
 		$city.append(img);
 
-		// call for the uv index in the searched city;
+		// call for the UV index in the searched city;
 		let uvURL =
 			"http://api.openweathermap.org/data/2.5/uvi?appid=" + key + lat + lon;
 		$.ajax({
@@ -120,10 +90,9 @@ function weatherPull(cityName) {
 			$uv.empty().append("UV Index: " + uvIndex);
 		});
 
-		//  ***** in progress *****
-
 		// call for the forecast data
 		function forecastData(lat, lon) {
+			$forecastColumns.removeClass("hide");
 			let forecastURL =
 				"https://api.openweathermap.org/data/2.5/forecast?" +
 				lat +
@@ -140,6 +109,9 @@ function weatherPull(cityName) {
 				let colCount = 0;
 
 				for (let i = 7; i < 40; i = i + 8) {
+					let forecastDay = moment(res.list[i].dt_txt).format("dddd");
+					$(".row-city")[colCount].append(forecastDay);
+
 					let date = moment().format("MM - DD - YYYY");
 					$(".row-date")[colCount].append(date);
 
@@ -156,8 +128,6 @@ function weatherPull(cityName) {
 					let humid = res.list[i].main.humidity;
 					$(".row-humid")[colCount].append("humidity: " + humid + " %");
 
-					// $(".row-temp").css("margin-bottom: ", "20px");
-
 					colCount++;
 				}
 			});
@@ -165,5 +135,34 @@ function weatherPull(cityName) {
 		forecastData(lat, lon);
 	});
 }
+
+$(".search-btn").on("click", function(e) {
+	e.preventDefault();
+	var cityName = $input
+		.val()
+		.toLowerCase()
+		.trim();
+	// if buttonArr does not include city name;
+	if (!$buttonArr.includes(cityName)) {
+		toStorage(cityName);
+
+		let cityButton = $("<button>").addClass("btn-outline-secondary btn");
+		cityButton.text(cityName);
+		$buttons.prepend(cityButton);
+	}
+
+	weatherPull(cityName);
+});
+
+$(".buttons").on("click", "button", function() {
+	$buttons.empty();
+	let createdButton = "";
+	for (let i = 0; i < $buttonArr.length; i++) {
+		createdButton = $("<button>").addClass("btn-outline-secondary btn");
+		createdButton.text($buttonArr[i]);
+		$buttons.prepend(createdButton);
+	}
+	weatherPull($(this)[0].innerText);
+});
 
 returnStorage();
