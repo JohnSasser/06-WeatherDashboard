@@ -42,9 +42,8 @@ Please make sure to update tests as appropriate.
 # Banter
 
     -   ALGORITHM OF SUCCESS
-
-while(noSuccess){
-tryAgain();
-if(dead)
-break computer;
-}
+    while(noSuccess){
+        tryAgain();
+    if(dead)
+    break computer;
+    }
