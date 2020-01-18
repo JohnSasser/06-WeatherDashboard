@@ -150,7 +150,6 @@ $(".search-btn").on("click", function(e) {
 		cityButton.text(cityName);
 		$buttons.prepend(cityButton);
 	}
-
 	weatherPull(cityName);
 });
 

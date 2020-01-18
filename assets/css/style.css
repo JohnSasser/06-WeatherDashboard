@@ -50,7 +50,7 @@ body {
 
 .fore-col {
 	font-size: 10px;
-	background-color: rgba(168, 238, 255, 0.916);
+	background-color: rgba(207, 244, 253, 0.916);
 	margin: 10px 0 0 18px;
 	border: 1px solid black;
 	border-radius: 10px;
@@ -58,6 +58,7 @@ body {
 	height: 200px;
 }
 
+.row-city,
 .row-date,
 .row-icon,
 .row-temp,

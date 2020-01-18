@@ -1,6 +1,6 @@
 # 06-WeatherDashboard
 
-Weather App with a 5 day forecast
+It's a Weather App.
 
 # Description
 
