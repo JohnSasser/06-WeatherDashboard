@@ -9,7 +9,7 @@ This work is a simple weather tracker and forecast app, build with the [open wea
 Enjoy and remember,
 Efficiency is the key to success!!!
 
-[Alt text](./assets/images/weather-dashboard.png?raw=true)
+[Project Image](./assets/images/weather-dashboard.png);
 
 # About
 
