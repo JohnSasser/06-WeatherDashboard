@@ -45,5 +45,5 @@ Please make sure to update tests as appropriate.
     while(noSuccess){
         tryAgain();
     if(dead)
-    break computer;
+    breakComputer();
     }
