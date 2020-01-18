@@ -108,28 +108,60 @@ function weatherPull(cityName) {
 
 				let colCount = 0;
 
-				for (let i = 7; i < 40; i = i + 8) {
-					let forecastDay = moment(res.list[i].dt_txt).format("dddd");
-					$(".row-city")[colCount].append(forecastDay);
+				let i = 7;
+				$forecastColumns.each(function() {
+					debugger;
+					if (i < 40) {
+						$(this)
+							.children(".row-city")
+							.html(moment(res.list[i].dt_txt).format("dddd"));
+						$(this)
+							.children(".row-date")
+							.html(moment().format("MM - DD - YYYY"));
 
-					let date = moment().format("MM - DD - YYYY");
-					$(".row-date")[colCount].append(date);
+						let icon =
+							"https://openweathermap.org/img/wn/" +
+							res.list[i].weather[0].icon +
+							".png";
+						let img = $("<img>").attr("src", icon);
+						$(this)
+							.children(".row-icon")
+							.html(img);
 
-					let icon =
-						"https://openweathermap.org/img/wn/" +
-						res.list[i].weather[0].icon +
-						".png";
-					let img = $("<img>").attr("src", icon);
-					$(".row-icon").append(img[colCount]);
+						let temp = res.list[i].main.temp;
+						$(this)
+							.children(".row-temp")
+							.html("temp: " + temp + "ºF");
 
-					let temp = res.list[i].main.temp;
-					$(".row-temp")[colCount].append("temp: " + temp + "ºF");
+						let humid = res.list[i].main.humidity;
+						$(this)
+							.children(".row-humid")
+							.html("humidity: " + humid + " %");
+					}
+					i = i + 8;
+				});
+				// for (let i = 7; i < 40; i = i + 8) {
+				// 	let forecastDay = moment(res.list[i].dt_txt).format("dddd");
+				// 	$(".row-city")[colCount].html(forecastDay);
 
-					let humid = res.list[i].main.humidity;
-					$(".row-humid")[colCount].append("humidity: " + humid + " %");
+				// 	let date = moment().format("MM - DD - YYYY");
+				// 	$(".row-date")[colCount].html(date);
 
-					colCount++;
-				}
+				// 	let icon =
+				// 		"https://openweathermap.org/img/wn/" +
+				// 		res.list[i].weather[0].icon +
+				// 		".png";
+				// 	let img = $("<img>").attr("src", icon);
+				// 	$(".row-icon").html(img[colCount]);
+
+				// 	let temp = res.list[i].main.temp;
+				// 	$(".row-temp")[colCount].html("temp: " + temp + "ºF");
+
+				// 	let humid = res.list[i].main.humidity;
+				// 	$(".row-humid")[colCount].html("humidity: " + humid + " %");
+
+				// 	colCount++;
+				// }
 			});
 		}
 		forecastData(lat, lon);
