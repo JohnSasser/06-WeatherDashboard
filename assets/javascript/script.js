@@ -110,7 +110,6 @@ function weatherPull(cityName) {
 
 				let i = 7;
 				$forecastColumns.each(function() {
-					debugger;
 					if (i < 40) {
 						$(this)
 							.children(".row-city")
@@ -142,23 +141,23 @@ function weatherPull(cityName) {
 				});
 				// for (let i = 7; i < 40; i = i + 8) {
 				// 	let forecastDay = moment(res.list[i].dt_txt).format("dddd");
-				// 	$(".row-city")[colCount].html(forecastDay);
+				// 	$(".row-city")[colCount].append(forecastDay);
 
 				// 	let date = moment().format("MM - DD - YYYY");
-				// 	$(".row-date")[colCount].html(date);
+				// 	$(".row-date")[colCount].append(date);
 
 				// 	let icon =
 				// 		"https://openweathermap.org/img/wn/" +
 				// 		res.list[i].weather[0].icon +
 				// 		".png";
 				// 	let img = $("<img>").attr("src", icon);
-				// 	$(".row-icon").html(img[colCount]);
+				// 	$(".row-icon").append(img[colCount]);
 
 				// 	let temp = res.list[i].main.temp;
-				// 	$(".row-temp")[colCount].html("temp: " + temp + "ºF");
+				// 	$(".row-temp")[colCount].append("temp: " + temp + "ºF");
 
 				// 	let humid = res.list[i].main.humidity;
-				// 	$(".row-humid")[colCount].html("humidity: " + humid + " %");
+				// 	$(".row-humid")[colCount].append("humidity: " + humid + " %");
 
 				// 	colCount++;
 				// }
