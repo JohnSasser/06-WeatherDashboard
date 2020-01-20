@@ -86,8 +86,20 @@ function weatherPull(cityName) {
 		}).then(function(result) {
 			// console.log(result);
 			let uvIndex = result.value;
-			// console.log(uvIndex);
+			console.log(uvIndex);
+
+			if (uvIndex > 3) {
+				$uv.empty().append("UV Index: " + uvIndex);
+				$uv.removeClass();
+				$uv.addClass("badge badge-succuss");
+			} else if (uvIndex > 3 && uvIndex < 7) {
+				$uv.empty().append("UV Index: " + uvIndex);
+				$uv.removeClass();
+				$uv.addClass("badge badge-warning");
+			} else uvIndex > 7;
 			$uv.empty().append("UV Index: " + uvIndex);
+			$uv.removeClass();
+			$uv.addClass("badge badge-danger");
 		});
 
 		// call for the forecast data
@@ -105,8 +117,6 @@ function weatherPull(cityName) {
 				method: "GET"
 			}).then(function(res) {
 				console.log(res);
-
-				let colCount = 0;
 
 				let i = 7;
 				$forecastColumns.each(function() {
@@ -139,6 +149,12 @@ function weatherPull(cityName) {
 					}
 					i = i + 8;
 				});
+
+				// initially tried to loop through the result with this for loop.
+				// ended up with errors while appending but i wanted to leave for,
+				// future loop on other projects.
+
+				// let colCount = 0;
 				// for (let i = 7; i < 40; i = i + 8) {
 				// 	let forecastDay = moment(res.list[i].dt_txt).format("dddd");
 				// 	$(".row-city")[colCount].append(forecastDay);
