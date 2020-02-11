@@ -79,7 +79,7 @@ function weatherPull(cityName) {
 
 		// call for the UV index in the searched city;
 		let uvURL =
-			"http://api.openweathermap.org/data/2.5/uvi?appid=" + key + lat + lon;
+			"https://api.openweathermap.org/data/2.5/uvi?appid=" + key + lat + lon;
 		$.ajax({
 			url: uvURL,
 			method: "GET"
