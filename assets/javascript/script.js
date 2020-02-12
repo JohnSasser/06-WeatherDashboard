@@ -47,7 +47,7 @@ function init() {
 	weatherPull(firstCity);
 }
 
-function weatherPull(cityName, firstCity) {
+function weatherPull(cityName) {
 	let weatherURL = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&units=imperial&appid=${key}`;
 
 	$.ajax({
