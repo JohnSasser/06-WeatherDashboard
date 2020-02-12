@@ -45,11 +45,7 @@ function clearForecastDivs() {
 
 function weatherPull(cityName) {
 	let weatherURL = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&units=imperial&appid=${key}`;
-	// "https://api.openweathermap.org/data/2.5/weather?q=" +
-	// cityName +
-	// "&units=imperial" +
-	// "&APPID=" +
-	// key;
+
 	$.ajax({
 		url: weatherURL,
 		method: "GET"
@@ -73,13 +69,13 @@ function weatherPull(cityName) {
 		// console.log("lat: " + lat, "lon: " + lon);
 
 		// call for the weather indication icon;
-		let iconURL = "https://openweathermap.org/img/wn/" + icon + ".png";
+		let iconURL = `https://openweathermap.org/img/wn/${icon}.png`;
 		let img = $("<img>").attr("src", iconURL);
 		$city.append(img);
 
 		// call for the UV index in the searched city;
-		let uvURL =
-			"https://api.openweathermap.org/data/2.5/uvi?appid=" + key + lat + lon;
+		let uvURL = `https://api.openweathermap.org/data/2.5/uvi?appid=${key}${lat}${lon}`;
+
 		$.ajax({
 			url: uvURL,
 			method: "GET"
@@ -105,13 +101,9 @@ function weatherPull(cityName) {
 		// call for the forecast data
 		function forecastData(lat, lon) {
 			$forecastColumns.removeClass("hide");
-			let forecastURL =
-				"https://api.openweathermap.org/data/2.5/forecast?" +
-				lat +
-				lon +
-				"&units=imperial" +
-				"&appid=" +
-				key;
+
+			let forecastURL = `https://api.openweathermap.org/data/2.5/forecast?${lat}${lon}&units=imperial&appid=${key}`;
+
 			$.ajax({
 				url: forecastURL,
 				method: "GET"
