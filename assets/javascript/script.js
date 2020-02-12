@@ -12,6 +12,11 @@ const $uv = $("#UV");
 const $createdButton = $(".btn");
 const $forecastColumns = $(".fore-col");
 
+function init() {
+	let firstCity = $buttonArr.pop();
+	weatherPull(firstCity);
+}
+
 function toStorage(cityName) {
 	$buttonArr.push(cityName);
 	let inputArr = JSON.stringify($buttonArr);
@@ -26,7 +31,6 @@ function returnStorage() {
 			$buttonArr.push(output[i]);
 		}
 	}
-	console.log("output arr: ", output);
 
 	for (let i = 0; i < $buttonArr.length; i++) {
 		const cityButton = $("<button>").addClass("btn-outline-secondary btn");
@@ -40,11 +44,6 @@ function clearForecastDivs() {
 	for (let i = 1; i < $forecastColumns.length; i++) {
 		$forecastColumns[i].empty();
 	}
-}
-
-function init() {
-	let firstCity = $buttonArr.pop();
-	weatherPull(firstCity);
 }
 
 function weatherPull(cityName) {
@@ -68,9 +67,8 @@ function weatherPull(cityName) {
 		$wind.empty().append("Wind: " + wind + " mph");
 
 		// for UV index, new call;
-		let lat = "&lat=" + res.coord.lon;
-		let lon = "&lon=" + res.coord.lat;
-		// console.log("lat: " + lat, "lon: " + lon);
+		let lat = "&lat=" + res.coord.lat;
+		let lon = "&lon=" + res.coord.lon;
 
 		// call for the weather indication icon;
 		let iconURL = `https://openweathermap.org/img/wn/${icon}.png`;
