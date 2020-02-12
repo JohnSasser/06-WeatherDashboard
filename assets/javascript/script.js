@@ -1,16 +1,16 @@
 const key = "73850cb2206998863eff087956e1fb33";
-let date = moment().format(": MMM Do YYYY ");
+const date = moment().format(": MMM Do YYYY ");
 
-let $buttons = $(".buttons");
-let $input = $("#city-input");
-let $buttonArr = [];
-let $city = $("#city");
-let $temp = $("#temp");
-let $humid = $("#humid");
-let $wind = $("#wind");
-let $uv = $("#UV");
-let $createdButton = $(".btn");
-let $forecastColumns = $(".fore-col");
+const $buttons = $(".buttons");
+const $input = $("#city-input");
+const $buttonArr = [];
+const $city = $("#city");
+const $temp = $("#temp");
+const $humid = $("#humid");
+const $wind = $("#wind");
+const $uv = $("#UV");
+const $createdButton = $(".btn");
+const $forecastColumns = $(".fore-col");
 
 function toStorage(cityName) {
 	$buttonArr.push(cityName);
@@ -44,12 +44,12 @@ function clearForecastDivs() {
 }
 
 function weatherPull(cityName) {
-	let weatherURL =
-		"http://api.openweathermap.org/data/2.5/weather?q=" +
-		cityName +
-		"&units=imperial" +
-		"&APPID=" +
-		key;
+	let weatherURL = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&units=imperial&appid=${key}`;
+	// "https://api.openweathermap.org/data/2.5/weather?q=" +
+	// cityName +
+	// "&units=imperial" +
+	// "&APPID=" +
+	// key;
 	$.ajax({
 		url: weatherURL,
 		method: "GET"
@@ -110,7 +110,7 @@ function weatherPull(cityName) {
 				lat +
 				lon +
 				"&units=imperial" +
-				"&APPID=" +
+				"&appid=" +
 				key;
 			$.ajax({
 				url: forecastURL,
