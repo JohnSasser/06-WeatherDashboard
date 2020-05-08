@@ -6,9 +6,6 @@ It's a Weather App.
 
 This work is a simple weather tracker and forecast app, build with the [open weather api](https://openweathermap.org/). Search for your city or, as the background image indicates, anywhere on earth! The top-right box houses the current weather in the location, and the bottom-right box will show a 5 day forecast for the given location.
 
-Enjoy and remember,
-Efficiency is the key to success!!!
-
 ![Project Image](./assets/images/weather-dashboard-min.png)
 
 # About
